@@ -1,0 +1,8 @@
+.textred{
+    color: red;
+}
+.borderWhite{
+    border: 1px solid white;
+    width: fit-content;
+    padding: 3px;
+}

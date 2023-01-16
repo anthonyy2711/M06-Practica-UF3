@@ -4,13 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//hayque importar a mano
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+//se importaron solos al crear los componentes
+import { FormularioreactivoComponent } from './components/formularioreactivo/formularioreactivo.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormularioreactivoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, //necesito cargar a mano este modulo de angular
+    ReactiveFormsModule //necesito cargar a mano este modulo de angular
   ],
   providers: [],
   bootstrap: [AppComponent]
