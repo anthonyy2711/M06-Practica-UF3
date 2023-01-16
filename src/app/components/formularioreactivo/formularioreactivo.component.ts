@@ -8,12 +8,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class FormularioreactivoComponent implements OnInit{
   datos!:string;//con ! no hace falta inicializar
-  estatCivil: string[];
+  tipusEntrada: string[];
   informacion: string[];
   selectedInfoArray : string[];
 
   constructor(){
-    this.estatCivil = ['Soltero', 'Casado', 'Divorciado'];
+    this.tipusEntrada = ['Concert', 'Cinema', 'Museu', 'Fira'];
     this.informacion = ['Videojocs', 'Accesoris', 'Novetats del mercat'];
     this.selectedInfoArray = [];
   }
@@ -22,6 +22,7 @@ export class FormularioreactivoComponent implements OnInit{
     nombre: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
+      Validators.maxLength(50),
       Validators.pattern('[a-zA-Z]+')//solo letras
     ]),
 
@@ -42,7 +43,7 @@ export class FormularioreactivoComponent implements OnInit{
 
     ]),
 
-    estatcivil: new FormControl('', [
+    tipusEntrada: new FormControl('', [
       Validators.required
     ]),
 
@@ -89,7 +90,7 @@ export class FormularioreactivoComponent implements OnInit{
     Contraseña: ${this.formularioReactivo.value.contra} |
     Confirmacion Contraseña: ${this.formularioReactivo.value.confcontra} | 
     Correo: ${this.formularioReactivo.value.correo} |
-    Estado civil: ${this.formularioReactivo.value.estatcivil} |
+    Estado civil: ${this.formularioReactivo.value.tipusEntrada} |
     Sexe: ${this.formularioReactivo.value.sexe} |
     `
     this.datos+="Informacion: ";

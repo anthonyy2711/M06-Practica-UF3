@@ -53,12 +53,12 @@
     
     <!-- Estat civil * (camp de tipus select que rep els seus valors des d’un array amb 
     3 valors com poden ser: Casat/da, Solter/a, Divorciat/da)-->
-    <p>Estat Civil: 
-        <select formControlName="estatcivil">
-            <option *ngFor="let estat of estatCivil" value="{{estat}}">{{estat}}</option>
+    <p>Tipus de entrada: 
+        <select formControlName="tipusEntrada">
+            <option *ngFor="let estat of tipusEntrada" value="{{estat}}">{{estat}}</option>
         </select>
         <!--Mensajes error-->
-        <span *ngIf="this.formularioReactivo.get('estatcivil')?.errors?.['required'] && this.formularioReactivo.get('estatcivil')?.pristine" class="textred">
+        <span *ngIf="this.formularioReactivo.get('tipusEntrada')?.errors?.['required'] && this.formularioReactivo.get('tipusEntrada')?.pristine" class="textred">
             *
         </span>
     </p>
