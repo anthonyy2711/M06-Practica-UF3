@@ -12,13 +12,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioreactivoComponent } from './components/formularioreactivo/formularioreactivo.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { SoloLetrasDirective } from './directives/solo-letras.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormularioreactivoComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    SoloLetrasDirective
   ],
   imports: [
     BrowserModule,
