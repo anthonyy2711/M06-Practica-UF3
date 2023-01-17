@@ -10,11 +10,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 //se importaron solos al crear los componentes
 import { FormularioreactivoComponent } from './components/formularioreactivo/formularioreactivo.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormularioreactivoComponent
+    FormularioreactivoComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
