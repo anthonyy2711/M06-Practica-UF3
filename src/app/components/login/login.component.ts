@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ServiceLoginValidationService } from 'src/app/services/service-login-validation.service';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +10,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit{
   nombreUsuario!:string;
   passwordUsuario!:string;
-  constructor(){
+  constructor(public serviceLoginValidationService: ServiceLoginValidationService){
     
   }
 
   ngOnInit():void{
     this.nombreUsuario="";
     this.passwordUsuario="";
+    console.log(this.serviceLoginValidationService);
+    
   }
-  submit(){
 
+  submit(){
+    // if(this.nombreUsuario == this.serviceLoginValidationService.user1){
+
+    // }
   }
 }

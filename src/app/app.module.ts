@@ -13,6 +13,7 @@ import { FormularioreactivoComponent } from './components/formularioreactivo/for
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { SoloLetrasDirective } from './directives/solo-letras.directive';
+import { EventComponent } from './components/event/event.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SoloLetrasDirective } from './directives/solo-letras.directive';
     FormularioreactivoComponent,
     LoginComponent,
     RegistroComponent,
-    SoloLetrasDirective
+    SoloLetrasDirective,
+    EventComponent,
   ],
   imports: [
     BrowserModule,
