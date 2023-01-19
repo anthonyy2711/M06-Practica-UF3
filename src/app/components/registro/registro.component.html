@@ -1,5 +1,5 @@
 <form [formGroup]="formularioReactivo" (ngSubmit)="submit()" novalidate class="container"><!--novalidate true seria per no validar per html5-->
-    <h2>Formulario Reactivo</h2>
+    <h2>Formulario Registro Reactivo</h2>
     <!-- Nom d’usuari * (camp de texte, només admet lletres i un mínim de 6)-->
     <p>Nombre: 
         <input type="text" formControlName="nombre" soloLetras>
@@ -7,10 +7,11 @@
         <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['required'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
             *
         </span>
+        <!--Errores usados por la directica personalizada-->
         <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['sololetras'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
-            solo letras
+            Solo letras
         </span>
-        <!--
+        <!--Errores usasdos de component.ts
         <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['minlength'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
             Longitud minima es 6 &nbsp;
         </span>
@@ -45,12 +46,13 @@
 
     <!-- Correu electrònic * (camp de texte, només admet email)-->
     <p>Correo: 
-        <input type="text" formControlName="correo">
+        <input type="text" formControlName="correo" emailPattern>
         <!--Mensajes error-->
         <span *ngIf="this.formularioReactivo.get('correo')?.errors?.['required'] && this.formularioReactivo.get('correo')?.touched" class="textred">
             *
         </span>
-        <span *ngIf="this.formularioReactivo.get('correo')?.errors?.['pattern'] && this.formularioReactivo.get('correo')?.touched" class="textred">
+        <!--Errores usados por la directica personalizada-->
+        <span *ngIf="this.formularioReactivo.get('correo')?.errors?.['emailPattern'] && this.formularioReactivo.get('correo')?.touched" class="textred">
             Tiene que tener formato email
         </span>
     </p>

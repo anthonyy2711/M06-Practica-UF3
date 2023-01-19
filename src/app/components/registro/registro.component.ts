@@ -36,10 +36,10 @@ export class RegistroComponent {
     ]),
 
     correo: new FormControl('', [
-      Validators.required,
+      Validators.required,/*
       Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')//correo
       //Validators.email
-
+      */
     ]),
 
     estatcivil: new FormControl('', [
