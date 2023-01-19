@@ -10,20 +10,20 @@ import { ServiceLoginValidationService } from 'src/app/services/service-login-va
 export class LoginComponent implements OnInit{
   nombreUsuario!:string;
   passwordUsuario!:string;
-  constructor(public serviceLoginValidationService: ServiceLoginValidationService){
+  constructor(){
     
   }
 
   ngOnInit():void{
     this.nombreUsuario="";
     this.passwordUsuario="";
-    console.log(this.serviceLoginValidationService);
     
   }
 
   submit(){
     // if(this.nombreUsuario == this.serviceLoginValidationService.user1){
-
+    console.log(this.nombreUsuario);
+    console.log(this.passwordUsuario);
     // }
   }
 }

@@ -7,8 +7,9 @@ import { User } from '../class/user';
 })
 export class ServiceLoginValidationService {
   
-  user1 = new User('ruyou', 'pruyou', 'admin');
-  user2 = new User('anthony', 'panthony', 'admin');
-  user3 = new User('jonathan', 'pjonathan', 'buyer');
-  user4 = new User('pau', 'ppau', 'buyer');
+  user1 = new User('ruyou', 'pruyou', 'ruyou@gmail.com', 'soltero', 'hombre', 'games', 'admin');
+  user2 = new User('anthony', 'panthony', 'anthonygmail.com', 'soltero', 'hombre', 'games', 'admin');
+
+
+
 }
