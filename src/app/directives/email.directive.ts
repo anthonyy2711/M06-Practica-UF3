@@ -22,6 +22,6 @@ export class EmailDirective {
       valida = true;//si el valor es correcto
     }
     //console.log(valida);//ver si es true o false
-    return valida?null: {'emailPattern': true};
+    return valida?null: {'emailPattern': true};//entre '' va el nombre del error a mostrar
   }
 }

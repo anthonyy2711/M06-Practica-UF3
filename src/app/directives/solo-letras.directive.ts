@@ -24,6 +24,6 @@ export class SoloLetrasDirective {
       valida = true;//si el valor es correcto
     }
     //console.log(valida);//ver si es true o false
-    return valida?null: {'sololetras': true};
+    return valida?null: {'sololetras': true};//entre '' va el nombre del error a mostrar
   }
 }
