@@ -20,9 +20,9 @@ export class RegistroComponent {
 
   formularioReactivo = new FormGroup({
     nombre: new FormControl('', [
-      Validators.required,
+      Validators.required,/*
       Validators.minLength(6),
-      Validators.pattern('[a-zA-Z]+')//solo letras
+      Validators.pattern('[a-zA-Z]+')//solo letras*/
     ]),
 
     contra: new FormControl('', [

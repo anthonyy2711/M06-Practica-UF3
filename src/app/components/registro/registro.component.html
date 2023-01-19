@@ -2,17 +2,21 @@
     <h2>Formulario Reactivo</h2>
     <!-- Nom d’usuari * (camp de texte, només admet lletres i un mínim de 6)-->
     <p>Nombre: 
-        <input type="text" formControlName="nombre">
+        <input type="text" formControlName="nombre" soloLetras>
         <!--Mensajes error-->
         <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['required'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
             *
         </span>
+        <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['sololetras'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
+            solo letras
+        </span>
+        <!--
         <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['minlength'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
             Longitud minima es 6 &nbsp;
         </span>
         <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['pattern'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
             Solo admite letras 
-        </span>
+        </span>-->
     </p>
 
     <!-- Contrasenya * (camp de texte, admet lletres i números i un mínim de 8)-->

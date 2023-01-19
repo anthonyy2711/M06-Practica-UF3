@@ -15,15 +15,15 @@ export class SoloLetrasDirective {
 
   constructor() { }
   //dado un control de un formulario cualquiera si le pongo 
-  //el atributo entreValores me hara la validacion que le voy a decir
+  //el atributo soloLetras me hara la validacion que le voy a decir
   validate(control: AbstractControl): ValidationErrors|null{
-    let valida: boolean = false;
-    let patternLetras="[A-Za-z]+";
-    console.log(control.value);
-    if (patternLetras.match(control.value)){
+    let valida: boolean = false;//la validacion empieza en icorrecto, si es correcto sera true
+    let patternLetras="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";//patern solo letras
+    //console.log(control.value);//console del valor que viene del html
+    if (control.value.match(patternLetras)){//cogemos el valor y probamos si coincide con el patern
       valida = true;//si el valor es correcto
     }
-    console.log(valida);
-    return valida?null: {'nombre': true};
+    //console.log(valida);//ver si es true o false
+    return valida?null: {'sololetras': true};
   }
 }
