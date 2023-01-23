@@ -76,14 +76,14 @@ export class RegistroComponent {
     if(esta==-1){//si no esta lo añado
       this.selectedInfoArray.push(info);
     }else{//si esta lo elimino
-      console.log(esta);
+      //console.log(esta);
       this.selectedInfoArray.splice(esta,1);//elimino
     }
 
   }
 
   submit(){
-    console.log(this.selectedInfoArray)
+    //console.log(this.selectedInfoArray)
     this.datos=`
     Nombre: ${this.formularioReactivo.value.nombre} | 
     Contraseña: ${this.formularioReactivo.value.contra} |

@@ -4,7 +4,7 @@ import { FormularioreactivoComponent } from './components/formularioreactivo/for
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { EventComponent} from './components/event/event.component';
-
+import { RegistrocorrectoComponent } from './components/registrocorrecto/registrocorrecto.component';
 const routes: Routes = [
   {
     path:'login',
@@ -19,6 +19,11 @@ const routes: Routes = [
   {
     path:'evento',
     component: EventComponent,
+   
+  },
+  {
+    path:'registrocorrecto',
+    component: RegistrocorrectoComponent,
    
   },
 

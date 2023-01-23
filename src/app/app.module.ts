@@ -16,6 +16,7 @@ import { SoloLetrasDirective } from './directives/solo-letras.directive';
 import { EventComponent } from './components/event/event.component';
 import { EmailDirective } from './directives/email.directive';
 import { RepitecontraDirective } from './directives/repitecontra.directive';
+import { RegistrocorrectoComponent } from './components/registrocorrecto/registrocorrecto.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RepitecontraDirective } from './directives/repitecontra.directive';
     EventComponent,
     EmailDirective,
     RepitecontraDirective,
+    RegistrocorrectoComponent,
   ],
   imports: [
     BrowserModule,

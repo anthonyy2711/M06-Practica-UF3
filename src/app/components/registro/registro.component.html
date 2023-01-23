@@ -109,7 +109,7 @@
             </span>
     </p>
 
-    <button type="submit" class="btn btn-outline-success" [disabled]="formularioReactivo.invalid">Registro</button>
+    <button type="submit" class="btn btn-outline-success" [disabled]="formularioReactivo.invalid" routerLink="/registrocorrecto">Registrarse</button>
                                                             <!--si el invalidad fa true deshabilita el boton-->
 
 
@@ -118,4 +118,7 @@
         {{datos}}
     </div>
     -->
+    <div>
+        <router-outlet></router-outlet><!--Para que funcione el routing-->
+    </div>
 </form>
