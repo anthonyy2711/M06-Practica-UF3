@@ -36,11 +36,15 @@
     </p>
     
     <!-- Confirmar contrasenya * (igual que l’anterior i ha de coincidir)-->
-    <p>Confirmar Contraseña:
-        <input type="text" formControlName="confcontra">
+    <p>Confirmar Contraseña:                       <!--llamada directiva--paso de parametro de la contraseña  -->
+        <input type="text" formControlName="confcontra" appRepitecontra [parametro]="this.formularioReactivo.value.contra">
         <!--Mensajes error-->
         <span *ngIf="this.formularioReactivo.get('confcontra')?.errors?.['required'] && this.formularioReactivo.get('confcontra')?.touched" class="textred">
             *
+        </span>
+        <!--Mensaje error directica personalizada-->
+        <span *ngIf="this.formularioReactivo.get('confcontra')?.errors?.['repitecontra'] && this.formularioReactivo.get('confcontra')?.touched" class="textred">
+            Debe conincidir con las Contraseña
         </span>
     </p>
 
@@ -109,9 +113,9 @@
                                                             <!--si el invalidad fa true deshabilita el boton-->
 
 
-
+    <!--Muestra de informacion del registro
     <div>
         {{datos}}
     </div>
-
+    -->
 </form>

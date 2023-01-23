@@ -15,6 +15,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { SoloLetrasDirective } from './directives/solo-letras.directive';
 import { EventComponent } from './components/event/event.component';
 import { EmailDirective } from './directives/email.directive';
+import { RepitecontraDirective } from './directives/repitecontra.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EmailDirective } from './directives/email.directive';
     SoloLetrasDirective,
     EventComponent,
     EmailDirective,
+    RepitecontraDirective,
   ],
   imports: [
     BrowserModule,
