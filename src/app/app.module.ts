@@ -15,8 +15,6 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { SoloLetrasDirective } from './directives/solo-letras.directive';
 import { EventComponent } from './components/event/event.component';
 import { EmailDirective } from './directives/email.directive';
-import { RepitecontraDirective } from './directives/repitecontra.directive';
-import { RegistrocorrectoComponent } from './components/registrocorrecto/registrocorrecto.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +34,7 @@ import { RegistrocorrectoComponent } from './components/registrocorrecto/registr
     FormsModule, //necesito cargar a mano este modulo de angular
     ReactiveFormsModule //necesito cargar a mano este modulo de angular
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

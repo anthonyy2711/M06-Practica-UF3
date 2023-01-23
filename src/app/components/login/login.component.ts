@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { ServiceLoginValidationService } from 'src/app/services/service-login-validation.service';
 
 @Component({
@@ -10,20 +11,33 @@ import { ServiceLoginValidationService } from 'src/app/services/service-login-va
 export class LoginComponent implements OnInit{
   nombreUsuario!:string;
   passwordUsuario!:string;
-  constructor(){
+  role!:string;
+  loginValidation:any;
+  createUsers:any;
+  cookieService: any;
+  //injectem el servei
+  constructor(private loginService: ServiceLoginValidationService, private myCookie: CookieService){
     
   }
 
   ngOnInit():void{
     this.nombreUsuario="";
     this.passwordUsuario="";
-    
+    this.createUsers=this.loginService.createUsers();
+    console.log(this.createUsers)
   }
 
   submit(){
-    // if(this.nombreUsuario == this.serviceLoginValidationService.user1){
+    //injectamos el servicio y le pasamos los parametros
+    this.loginValidation = this.loginService.loginValidation(this.nombreUsuario, this.passwordUsuario);
+
     console.log(this.nombreUsuario);
-    console.log(this.passwordUsuario);
-    // }
+    console.log(this.loginValidation);
+    //
+    this.cookieService.set(this.nombreUsuario,this.role);
+  }
+
+  delete(){
+    this.myCookie.delete(this.nombreUsuario);
   }
 }
