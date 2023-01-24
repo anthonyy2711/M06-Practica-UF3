@@ -13,7 +13,6 @@ import { FormularioreactivoComponent } from './components/formularioreactivo/for
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { SoloLetrasDirective } from './directives/solo-letras.directive';
-
 import { EmailDirective } from './directives/email.directive';
 import { RepitecontraDirective } from './directives/repitecontra.directive';
 import { CookieService } from 'ngx-cookie-service';
@@ -26,7 +25,6 @@ import { RegistrocorrectoComponent } from './components/registrocorrecto/registr
     LoginComponent,
     RegistroComponent,
     SoloLetrasDirective,
-
     EmailDirective,
     RepitecontraDirective,
     RegistrocorrectoComponent,
