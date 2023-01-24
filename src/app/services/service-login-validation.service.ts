@@ -7,6 +7,9 @@ import { User } from '../class/user';
 })
 export class ServiceLoginValidationService {
   
+  constructor(){
+    this.createUsers();
+  }
   user1 = new User('ruyou', 'pruyou', 'ruyou@gmail.com', 'soltero', 'hombre', 'games', 'admin');
   user2 = new User('anthony', 'panthony', 'anthonygmail.com', 'soltero', 'hombre', 'games', 'admin');
 
@@ -16,19 +19,24 @@ export class ServiceLoginValidationService {
   information = ['BodyBuilder', 'Gamer', 'Runner', 'Teacher'];
   users =  [this.user1, this.user2];
 
-  loginValidation(user:any, pass:any):boolean{
+  loginValidation(user:any, pass:any): string{
     console.log(this.users);
-    if(user == this.user1.user_name && pass ==this.user1.password){
-      console.log(this.users);
-      console.log('ok')
-      return true;
-    } else{
-      console.log('no ok')
-      return false;
+    for (let index = 0; index < this.users.length; index++) {
+      if (this.users[index].user_name == user && this.users[index].password == pass) {
+        console.log('ok')
+        return this.users[index].role;
+      } 
     }
-  }
-  getUsers(){
-   
+    return 'error';
+
+    // if(user == this.user1.user_name && pass ==this.user1.password){
+    //   console.log(this.users);
+    //   console.log('ok')
+    //   return true;
+    // } else{
+    //   console.log('no ok')
+    //   return false;
+    // }
   }
   //Create random users
   createUsers(){
