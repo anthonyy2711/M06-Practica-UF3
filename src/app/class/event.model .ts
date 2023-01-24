@@ -6,7 +6,7 @@ export class Event {
         Lloc
         Preu (en €)
     */
-    constructor(event_name:string, event_type:string, event_date:string, event_site:string, event_price:number){
+    constructor(event_name:string, event_type:string, event_date:Date, event_site:string, event_price:number){
         this.event_name = event_name;
         this.event_type = event_type;
         this.event_date = event_date;
@@ -21,7 +21,7 @@ export class Event {
     get event_type(): string {
         return this.event_type;
     }
-    get event_date(): string {
+    get event_date(): Date {
         return this.event_date;
     }
     get event_site(): string {
@@ -44,10 +44,11 @@ export class Event {
         }
         this.event_type = value;
     }
-    set event_date(value: string) {
-        if (value == '') {
+    set event_date(value: Date) {
+        /*
+        if (value == null) {
             throw new Error('');
-        }
+        }*/
         this.event_date = value;
     }
     set event_site(value: string) {
