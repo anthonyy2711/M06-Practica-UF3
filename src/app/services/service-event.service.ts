@@ -60,7 +60,7 @@ export class ServiceEventService {
   eventPrice = [50, 60, 70, 80, 90, 250, 500, 1000];
 
   //Generar events randoms
-  randomEvents(){
+  randomEvents(): Event[]{
     for(let i=0; i <= 100; i++){
       let name = this.eventNames[Math.floor(Math.random()*this.eventNames.length)];
       let type = this.eventType[Math.floor(Math.random()*this.eventType.length)];
@@ -70,5 +70,7 @@ export class ServiceEventService {
 
       this.events.push(new Event(name, type, new Date(date), site, price));
     }
+
+    return this.events;
   }
 }
