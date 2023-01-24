@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit{
     console.log(this.nombreUsuario);
     console.log(this.loginValidation);
     //
-    this.cookieService.set(this.nombreUsuario,this.loginValidation);
-    console.log(this.cookieService);
+    this.myCookie.set(this.nombreUsuario,this.loginValidation);
+    console.log(this.myCookie.get(this.nombreUsuario));
   }
 
   delete(){
