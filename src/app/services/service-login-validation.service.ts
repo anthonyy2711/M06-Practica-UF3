@@ -17,7 +17,8 @@ export class ServiceLoginValidationService {
   marital_status = ['Soltero', 'Casado', 'Viudo'];
   gender = ['Masculino', 'Femenino']
   information = ['BodyBuilder', 'Gamer', 'Runner', 'Teacher'];
-  users =  [this.user1, this.user2];
+
+  users =  [this.user1, this.user2];//Array de lo usuarios
 
   loginValidation(user:any, pass:any): string{
     console.log(this.users);
@@ -45,7 +46,7 @@ export class ServiceLoginValidationService {
       let status = this.marital_status[Math.floor(Math.random()*this.marital_status.length)];
       let gender = this.gender[Math.floor(Math.random()*this.gender.length)];
       let info = this.information[Math.floor(Math.random()*this.information.length)];
-      this.users.push(new User(name, 'pass', name+index+"@gmail.com", status, gender, info, 'buyer'));
+      this.users.push(new User(name, 'pass', name+index+"@gmail.com", status, gender, info, 'buyer'));//añadimos los usuarios randoms al array users
     }
     console.log(this.users);
   }
