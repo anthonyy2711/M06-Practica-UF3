@@ -21,7 +21,7 @@ export class EventtemplatedrivenComponent implements OnInit {
     
     this.nombre="";
     this.tipus="";
-    this.array= this.randomEvents;
+    this.array= this.randomEvents.randomEvents();
     console.log(this.array)
   }
 
