@@ -69,6 +69,7 @@ export class ServiceEventService {
       let price = this.eventPrice[Math.floor(Math.random()*this.eventPrice.length)];
 
       this.events.push(new Event(name, type, new Date(date), site, price));
+      console.log("Eventos: " + this.events[i]);
     }
 
     return this.events;
