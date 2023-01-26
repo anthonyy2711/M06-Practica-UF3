@@ -17,6 +17,7 @@ import { EmailDirective } from './directives/email.directive';
 import { RepitecontraDirective } from './directives/repitecontra.directive';
 import { CookieService } from 'ngx-cookie-service';
 import { RegistrocorrectoComponent } from './components/registrocorrecto/registrocorrecto.component';
+import { EventtemplatedrivenComponent } from './components/eventtemplatedriven/eventtemplatedriven.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RegistrocorrectoComponent } from './components/registrocorrecto/registr
     EmailDirective,
     RepitecontraDirective,
     RegistrocorrectoComponent,
+    EventtemplatedrivenComponent,
   ],
   imports: [
     BrowserModule,

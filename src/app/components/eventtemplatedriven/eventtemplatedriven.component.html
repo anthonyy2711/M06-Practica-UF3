@@ -1,0 +1,44 @@
+<p>eventtemplatedriven works!</p>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <h1 class="text-center">Admin</h1>
+        <div *ngFor="let item of array; let index=index" class="col-3">
+            <div class=" border border-3 rounded-4">
+                <form #event="ngForm" (ngSubmit)="submit()" >
+                    <label for="" class="form-label mt-3">Nombre:</label>
+                    <input name="name" #name="ngModel" type="name" [(ngModel)]="nombre" required entreValores  class="form-control">
+                    <div *ngIf="name.errors?.['required'] && name.touched" class="h4 pb-2 mt-4 mb-2 text-danger border-bottom border-danger">
+                        Este campo es obligatorio
+                    </div>
+                    <div *ngIf="name.errors?.['pattern'] && name.touched" class="h4 pb-2 mt-4 mb-2 text-danger border-bottom border-danger">
+                        Solo se admiten letras
+                    </div>
+                    <label for="" class="form-label">Tipus:</label>
+                    <input name="type" #type="ngModel" type="type" [(ngModel)]="tipus" required entreValores  class="form-control">
+                    <div *ngIf="type    .errors?.['required'] && type.touched" class="h4 pb-2 mt-4 mb-2 text-danger border-bottom border-danger">
+                        Este campo es obligatorio
+                    </div>
+                    <label for="" class="form-label">Data:</label>
+                    <input name="date" #date="ngModel" type="date" [(ngModel)]="data" required entreValores  class="form-control">
+                    <div *ngIf="date    .errors?.['required'] && date.touched" class="h4 pb-2 mt-4 mb-2 text-danger border-bottom border-danger">
+                        Este campo es obligatorio
+                    </div>
+                    <label for="" class="form-label">Lloc:</label>
+                    <input name="type" #type="ngModel" type="type" [(ngModel)]="tipus" required entreValores  class="form-control">
+                    <div *ngIf="type    .errors?.['required'] && type.touched" class="h4 pb-2 mt-4 mb-2 text-danger border-bottom border-danger">
+                        Este campo es obligatorio
+                    </div>
+
+                    <button [disabled]="event.invalid"  class="btn btn-success mt-3 mb-3">Modificar</button>
+                    <button [disabled]="event.invalid"  class="btn btn-danger mt-3 ms-2 mb-3">Eliminar</button>
+                </form>
+    
+            </div>
+        </div>
+       
+        
+       
+    </div>
+    
+</div>

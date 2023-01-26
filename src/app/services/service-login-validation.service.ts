@@ -11,7 +11,7 @@ export class ServiceLoginValidationService {
     this.createUsers();
   }
   user1 = new User('ruyou', 'pruyou', 'ruyou@gmail.com', 'soltero', 'hombre', 'games', 'admin');
-  user2 = new User('anthony', 'panthony', 'anthonygmail.com', 'soltero', 'hombre', 'games', 'admin');
+  user2 = new User('anthony', 'panthony', 'anthony@gmail.com', 'soltero', 'hombre', 'games', 'admin');
 
   names = ['Maria', 'Marco', 'Laura', 'Joel', 'Raul', ];
   marital_status = ['Soltero', 'Casado', 'Viudo'];
