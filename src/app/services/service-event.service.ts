@@ -6,7 +6,10 @@ import { Event } from '../class/event.model ';
 })
 export class ServiceEventService {
 
-  constructor() { }
+  constructor() { 
+
+
+  }
   /*
   //creacion de eventos manual
   event1 = new Event('Duke Times', 'Concierto', 2023-06-15T00:00:00,'Barcelona',100);
@@ -71,7 +74,7 @@ export class ServiceEventService {
       this.events.push(new Event(name, type, new Date(date), site, price));
       console.log("Eventos: " + this.events[i]);
     }
-
+    //console.log(this.events);
     return this.events;
   }
   
