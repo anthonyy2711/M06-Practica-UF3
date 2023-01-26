@@ -73,4 +73,5 @@ export class ServiceEventService {
 
     return this.events;
   }
+  
 }
