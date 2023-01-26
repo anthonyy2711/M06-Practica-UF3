@@ -1,4 +1,5 @@
 import { Component, OnInit,  } from '@angular/core';
+import { ServiceEventService } from 'src/app/services/service-event.service';
 
 @Component({
   selector: 'app-eventtemplatedriven',
@@ -12,33 +13,16 @@ export class EventtemplatedrivenComponent implements OnInit {
   lloc:any;
   preu: any;
   array: any;
+  //injectem el servei
+  constructor(public randomEvents:ServiceEventService ){
 
+  }
   ngOnInit(): void {
     
     this.nombre="";
     this.tipus="";
-    this.array= [
-      {
-        as: '',
-        asd: '',
-      },
-      {
-        as: '',
-        asd: '',
-      },
-      {
-        as: '',
-        asd: '',
-      },
-      {
-        as: '',
-        asd: '',
-      },
-      {
-        as: '',
-        asd: '',
-      },
-    ];
+    this.array= this.randomEvents;
+    console.log(this.array)
   }
 
 
