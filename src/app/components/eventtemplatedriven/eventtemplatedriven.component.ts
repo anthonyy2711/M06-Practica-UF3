@@ -42,11 +42,11 @@ export class EventtemplatedrivenComponent implements OnInit {
 
     this.eventFiltrado = this.array.filter(value => {
       console.log(this.nameFilter.toUpperCase())
-      if(value.event_name.toUpperCase().indexOf(this.nameFilter.toUpperCase()) != -1){
+      if(value.event_site.toUpperCase().indexOf(this.siteFilter.toUpperCase()) !=-1){
         //console.log("Array name "+value.event_name.toUpperCase());
         //console.log("input name "+this.nameFilter.toUpperCase());
-        if(value.event_price <= this.priceFilter){
-          if(value.event_site.toUpperCase().indexOf(this.siteFilter.toUpperCase()) !=-1){
+        if(value.event_name.toUpperCase().indexOf(this.nameFilter.toUpperCase()) != -1){
+          if(value.event_price <= this.priceFilter){
             return true;
           }
           
@@ -56,13 +56,6 @@ export class EventtemplatedrivenComponent implements OnInit {
       return false;
 
     });
-  }
-  notFoundEvent(){
-    if(this.eventFiltrado.length==0){
-      true;
-    } else{
-      false;
-    }
   }
   submit(){
 
