@@ -10,8 +10,10 @@
         <br>
 
 
-
+        <p>Eventos: {{eventFiltrado.length}}</p>
+        <p *ngIf="notFoundEvent">No existe eventos con estos datos</p>
         <div *ngFor="let item of eventFiltrado | paginate: {itemsPerPage: total, currentPage: cp}" class="col-3">
+            
             <div class=" border border-3 rounded-4">
                 <form #event="ngForm" (ngSubmit)="submit()" >
                     <h5>Nombre:</h5>

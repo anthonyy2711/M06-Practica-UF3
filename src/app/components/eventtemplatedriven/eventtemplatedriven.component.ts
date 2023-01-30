@@ -1,4 +1,5 @@
 import { Component, OnInit,  } from '@angular/core';
+import { count } from 'rxjs';
 import { ServiceEventService } from 'src/app/services/service-event.service';
 import { Event } from '../../class/event.model ';
 @Component({
@@ -11,6 +12,7 @@ export class EventtemplatedrivenComponent implements OnInit {
 
   total!:number;
   cp!:number;
+  totalEvents!:number;
   //filtrar
   eventFiltrado!: Event[];
   nameFilter!: string;
@@ -32,6 +34,8 @@ export class EventtemplatedrivenComponent implements OnInit {
     this.nameFilter="";
     this.siteFilter="";
     this.priceFilter;
+  
+
   }
 
   filter(){
@@ -52,9 +56,13 @@ export class EventtemplatedrivenComponent implements OnInit {
       return false;
 
     });
-
-
-
+  }
+  notFoundEvent(){
+    if(this.eventFiltrado.length==0){
+      true;
+    } else{
+      false;
+    }
   }
   submit(){
 
