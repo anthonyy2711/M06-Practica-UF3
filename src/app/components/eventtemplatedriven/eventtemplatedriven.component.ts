@@ -23,13 +23,13 @@ export class EventtemplatedrivenComponent implements OnInit {
   ngOnInit(): void {
     
     this.array= this.randomEvents.randomEvents();
-    console.log(this.array)
+    //console.log(this.array)
 
     this.total=10;
     this.cp=3;
     this.eventFiltrado = this.array;
     this.nameFilter="";
-    this.priceFilter=50;
+    this.priceFilter;
   }
 
   filter(){
@@ -37,8 +37,12 @@ export class EventtemplatedrivenComponent implements OnInit {
     this.eventFiltrado = this.array.filter(value => {
       console.log(this.nameFilter.toUpperCase())
       if(value.event_name.toUpperCase().indexOf(this.nameFilter.toUpperCase()) != -1){
-        if(value.event_price <= this.priceFilter)
+        //console.log("Array name "+value.event_name.toUpperCase());
+        //console.log("input name "+this.nameFilter.toUpperCase());
+        if(value.event_price <= this.priceFilter){
           return true;
+        }
+        
       }
       return false;
 

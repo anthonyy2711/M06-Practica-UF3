@@ -5,10 +5,10 @@
         <h1 class="text-center">Admin</h1>
         Filter by name: <input type="text" [(ngModel)]="nameFilter" (ngModelChange)="filter()">
         <br>
-        Filter by price: <input type="text" min="0" max="" [(ngModel)]="priceFilter" (ngModelChange)="filter()">
+        Filter by price: <input type="text" min="0" max="1000" [(ngModel)]="priceFilter" (ngModelChange)="filter()">
 
 
-        <div *ngFor="let item of array | paginate: {itemsPerPage: total, currentPage: cp}" class="col-3">
+        <div *ngFor="let item of eventFiltrado | paginate: {itemsPerPage: total, currentPage: cp}" class="col-3">
             <div class=" border border-3 rounded-4">
                 <form #event="ngForm" (ngSubmit)="submit()" >
                     <h5>Nombre:</h5>
