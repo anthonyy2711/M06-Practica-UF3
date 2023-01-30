@@ -18,7 +18,7 @@ import { RepitecontraDirective } from './directives/repitecontra.directive';
 import { CookieService } from 'ngx-cookie-service';
 import { RegistrocorrectoComponent } from './components/registrocorrecto/registrocorrecto.component';
 import { EventtemplatedrivenComponent } from './components/eventtemplatedriven/eventtemplatedriven.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +35,8 @@ import { EventtemplatedrivenComponent } from './components/eventtemplatedriven/e
     BrowserModule,
     AppRoutingModule,
     FormsModule, //necesito cargar a mano este modulo de angular
-    ReactiveFormsModule //necesito cargar a mano este modulo de angular
+    ReactiveFormsModule, //necesito cargar a mano este modulo de angular
+    NgxPaginationModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
