@@ -14,6 +14,7 @@ export class EventtemplatedrivenComponent implements OnInit {
   //filtrar
   eventFiltrado!: Event[];
   nameFilter!: string;
+  siteFilter!: string;
   priceFilter!: number;
   //injectem el servei
   constructor(public randomEvents:ServiceEventService ){
@@ -26,9 +27,10 @@ export class EventtemplatedrivenComponent implements OnInit {
     //console.log(this.array)
 
     this.total=10;
-    this.cp=3;
+    this.cp=1;
     this.eventFiltrado = this.array;
     this.nameFilter="";
+    this.siteFilter="";
     this.priceFilter;
   }
 
@@ -40,7 +42,10 @@ export class EventtemplatedrivenComponent implements OnInit {
         //console.log("Array name "+value.event_name.toUpperCase());
         //console.log("input name "+this.nameFilter.toUpperCase());
         if(value.event_price <= this.priceFilter){
-          return true;
+          if(value.event_site.toUpperCase().indexOf(this.siteFilter.toUpperCase()) !=-1){
+            return true;
+          }
+          
         }
         
       }
