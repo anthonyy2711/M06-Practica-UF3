@@ -6,12 +6,14 @@ export class Event {
         Lloc
         Preu (en €)
     */
+    #event_id: number;
     #event_name: string;
     #event_type: string;
     #event_date: Date;
     #event_site: string;
     #event_price: number;
-    constructor(event_name:string, event_type:string, event_date:Date, event_site:string, event_price:number){
+    constructor(event_id:number ,event_name:string, event_type:string, event_date:Date, event_site:string, event_price:number){
+        this.#event_id = event_id;
         this.#event_name = event_name;
         this.#event_type = event_type;
         this.#event_date = event_date;
@@ -20,6 +22,9 @@ export class Event {
     }
 
     //gets
+    get event_id(): number {
+        return this.#event_id;
+    }
     get event_name(): string {
         return this.#event_name;
     }
@@ -37,6 +42,12 @@ export class Event {
     }
 
     //sets
+    set event_id(value: number) {
+        if (value == null) {
+            throw new Error('');
+        }
+        this.#event_id = value;
+    }
     set event_name(value: string) {
         if (value == '') {
             throw new Error('');

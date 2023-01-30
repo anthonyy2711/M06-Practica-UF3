@@ -55,13 +55,14 @@ export class ServiceEventService {
   //Generar events randoms
   randomEvents(): Event[]{
     for(let i=0; i < 100; i++){
+      let id = i;
       let name = this.eventNames[Math.floor(Math.random()*this.eventNames.length)];
       let type = this.eventType[Math.floor(Math.random()*this.eventType.length)];
       let date = this.eventDate[Math.floor(Math.random()*this.eventDate.length)];
       let site = this.eventSite[Math.floor(Math.random()*this.eventSite.length)];
       let price = this.eventPrice[Math.floor(Math.random()*this.eventPrice.length)];
 
-      this.events.push(new Event(name, type, new Date(date), site, price));
+      this.events.push(new Event(id, name, type, new Date(date), site, price));
     }
     //console.log(this.events);//muestra array de los eventos 
     return this.events;
