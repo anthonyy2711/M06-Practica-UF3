@@ -7,7 +7,7 @@
             
             <div class="col-4">Filter by site: <input type="text" [(ngModel)]="siteFilter" (ngModelChange)="filter()"></div>
             
-            <div class="col-4">Filter by price: <input type="text" [(ngModel)]="priceFilter" (ngModelChange)="filter()"></div>
+            <div class="col-4">Filter by price: {{priceFilter}}<input type="range" min="50" max="1000" [(ngModel)]="priceFilter" (ngModelChange)="filter()"></div>
             
         </div>
         <br>
