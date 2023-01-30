@@ -27,8 +27,8 @@
                     <p>{{item.event_site}}</p>
                     <h5>Preu:</h5>
                     <p>{{item.event_price}}</p>
-                    <button [disabled]="event.invalid"  class="btn btn-success mt-3 mb-3">Modificar</button>
-                    <button [disabled]="event.invalid"  class="btn btn-danger mt-3 ms-2 mb-3">Eliminar</button>
+                    <button *ngIf=""  class="btn btn-success mt-3 mb-3">Modificar</button>
+                    <button   class="btn btn-danger mt-3 ms-2 mb-3">Eliminar</button>
                 </form>
                 
             </div>  

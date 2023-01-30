@@ -1,4 +1,5 @@
 import { Component, OnInit,  } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { count } from 'rxjs';
 import { ServiceEventService } from 'src/app/services/service-event.service';
 import { Event } from '../../class/event.model ';
@@ -13,13 +14,15 @@ export class EventtemplatedrivenComponent implements OnInit {
   total!:number;
   cp!:number;
   totalEvents!:number;
+
+
   //filtrar
   eventFiltrado!: Event[];
   nameFilter!: string;
   siteFilter!: string;
   priceFilter!: number;
   //injectem el servei
-  constructor(public randomEvents:ServiceEventService ){
+  constructor(public randomEvents:ServiceEventService, private myCookie: CookieService){
 
   }
   
@@ -34,8 +37,7 @@ export class EventtemplatedrivenComponent implements OnInit {
     this.nameFilter="";
     this.siteFilter="";
     this.priceFilter;
-  
-
+    console.log
   }
 
   filter(){
@@ -48,16 +50,17 @@ export class EventtemplatedrivenComponent implements OnInit {
         if(value.event_name.toUpperCase().indexOf(this.nameFilter.toUpperCase()) != -1){
           if(value.event_price <= this.priceFilter){
             return true;
-          }
-          
-        }
-        
+          }        
+        }       
       }
       return false;
 
     });
   }
   submit(){
+
+  }
+  delete() {
 
   }
 }

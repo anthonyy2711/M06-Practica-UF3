@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { User } from 'src/app/class/user';
 import { ServiceLoginValidationService } from 'src/app/services/service-login-validation.service';
 
 @Component({
@@ -13,10 +15,10 @@ export class LoginComponent implements OnInit{
   passwordUsuario!:string;
   role!:string;
   loginValidation:any;
-  createUsers:any;
+  createUsers!: any;
   cookieService: any;
   //injectem el servei
-  constructor(private loginService: ServiceLoginValidationService, private myCookie: CookieService){
+  constructor(private loginService: ServiceLoginValidationService, private myCookie: CookieService, private router:Router){
     
   }
 
@@ -30,12 +32,18 @@ export class LoginComponent implements OnInit{
   submit(){
     //injectamos el servicio y le pasamos los parametros
     this.loginValidation = this.loginService.loginValidation(this.nombreUsuario, this.passwordUsuario);
-
     console.log(this.nombreUsuario);
     console.log(this.loginValidation);
     //
     this.myCookie.set(this.nombreUsuario,this.loginValidation);
     console.log(this.myCookie.get(this.nombreUsuario));
+
+    if(this.loginValidation=='buyer' || this.loginValidation=='admin'){
+      this.router.navigate(['evento'])
+    } else{
+      
+    }
+    
   }
 
   delete(){
