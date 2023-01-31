@@ -1,21 +1,27 @@
 
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="row">
-            <div class="col-4">Filter by name: <input type="text" [(ngModel)]="nameFilter" (ngModelChange)="filter()"></div>
-            
-            <div class="col-4">Filter by site: <input type="text" [(ngModel)]="siteFilter" (ngModelChange)="filter()"></div>
-            
-            <div class="col-4">Filter by price: {{priceFilter}}<input type="range" min="50" max="1000" [(ngModel)]="priceFilter" (ngModelChange)="filter()"></div>
-            
+    <div class="row justify-content-end">
+        <div class="col-2 mb-5">
+            <a class="btn btn-danger col-3" onclick="logout()">LogOut</a>
         </div>
+    </div>
+     
+    <div class="row justify-content-center">
+        <div class="col-4">Filter by name: <input type="text" [(ngModel)]="nameFilter" (ngModelChange)="filter()" class="form-control"></div>
+        
+        <div class="col-4">Filter by site: <input type="text" [(ngModel)]="siteFilter" (ngModelChange)="filter()" class="form-control"></div>
+        
+        <div class="col-4">Filter by price: {{priceFilter}}<input type="range" min="50" max="1000" [(ngModel)]="priceFilter" (ngModelChange)="filter()" class="form-range"></div>
+        
+    </div>
+    <div class="row justify-content-center">    
         <br>
         <p>Eventos: {{eventFiltrado.length}}</p>
         <p *ngIf="eventFiltrado.length == 0" class="text-danger fw-bold">No existe eventos con estos datos</p>
         <div *ngFor="let item of eventFiltrado | paginate: {itemsPerPage: total, currentPage: cp}" class="col-3">
             
-            <div class=" border border-3 rounded-4">
-                <form #event="ngForm" (ngSubmit)="submit()" >
+            <div class=" border border-3 rounded-4 text-start">
+                <form #event="ngForm" (ngSubmit)="submit()" class="ms-5 mt-2">
                     <h5>Nombre:</h5>
                     <p>{{item.event_name}}</p>
                     <h5>Tipus:</h5>

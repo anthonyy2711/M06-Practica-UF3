@@ -1,4 +1,5 @@
 import { Component, OnInit,  } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { count } from 'rxjs';
 import { ServiceEventService } from 'src/app/services/service-event.service';
@@ -24,7 +25,7 @@ export class EventtemplatedrivenComponent implements OnInit {
   siteFilter!: string;
   priceFilter!: number;
   //injectem el servei
-  constructor(public randomEvents:ServiceEventService, private myCookie: CookieService, private sincronizacion:SynchronizationService){
+  constructor(public randomEvents:ServiceEventService, private myCookie: CookieService, private sincronizacion:SynchronizationService, private router:Router){
 
   }
   
@@ -68,7 +69,8 @@ export class EventtemplatedrivenComponent implements OnInit {
   submit(){
 
   }
-  delete() {
+  logout() {
     this.myCookie.deleteAll();
+    this.router.navigate(['login']) //importar router y redirigir al login
   }
 }

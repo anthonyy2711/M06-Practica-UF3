@@ -38,16 +38,23 @@ export class LoginComponent implements OnInit{
     //injectamos el servicio y le pasamos los parametros
     this.loginValidation = this.loginService.loginValidation(this.nombreUsuario, this.passwordUsuario);
 
-    var loginUser = {
+    if(this.loginValidation=="error"){
+      //alert("Mal")
+    }
+    else{
+      var loginUser = {
       "username": this.nombreUsuario,
       "role": this.loginValidation 
-    };
-    //
-    this.myCookie.set("user",JSON.stringify(loginUser));
+      };
+      //
+      this.myCookie.set("user",JSON.stringify(loginUser));
 
-    this.sincronizacion.cambiarRole(this.loginValidation);
+      this.sincronizacion.cambiarRole(this.loginValidation);
+      
+      this.router.navigate(['evento'])
+    }
+
     
-    this.router.navigate(['evento'])
     
   }
 
