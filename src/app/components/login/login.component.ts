@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit{
       "username": this.nombreUsuario,
       "role": this.loginValidation 
       };
-      //
+
       this.myCookie.set("user",JSON.stringify(loginUser));
 
       this.sincronizacion.cambiarRole(this.loginValidation);

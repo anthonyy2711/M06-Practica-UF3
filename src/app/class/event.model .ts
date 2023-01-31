@@ -1,11 +1,4 @@
 export class Event {
-    /*  
-        Nom (màxim 50 caràcters)
-        Tipus (exemple: concert, cinema, museu, fira, ...)
-        Data (màxim 1 any des del dia actual)
-        Lloc
-        Preu (en €)
-    */
     #event_id: number;
     #event_name: string;
     #event_type: string;
@@ -61,10 +54,6 @@ export class Event {
         this.#event_type = value;
     }
     set event_date(value: Date) {
-        /*
-        if (value == null) {
-            throw new Error('');
-        }*/
         this.#event_date = value;
     }
     set event_site(value: string) {

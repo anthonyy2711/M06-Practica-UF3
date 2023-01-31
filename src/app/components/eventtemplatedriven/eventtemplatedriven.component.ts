@@ -18,7 +18,6 @@ export class EventtemplatedrivenComponent implements OnInit {
   cp!:number;
   totalEvents!:number;
 
-
   //filtrar
   eventFiltrado!: Event[];
   nameFilter!: string;
@@ -30,11 +29,8 @@ export class EventtemplatedrivenComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    
     this.array= this.randomEvents.randomEvents();
     //console.log(this.array);//console log para ver los enventos randoms
-
-
 
     this.total=10;
     this.cp=1;

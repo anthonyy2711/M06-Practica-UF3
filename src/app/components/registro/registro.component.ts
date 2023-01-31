@@ -98,7 +98,7 @@ export class RegistroComponent {
     for (let i = 0; i < this.selectedInfoArray.length; i++) {
       this.datos += this.selectedInfoArray[i] + " ";
       
-    }*///name, 'pass', name+index+"@gmail.com", status, gender, info, 'comprador'
+    }*/
     this.LoginUser.anyadirUser( this.formularioReactivo.value.nombre??'',
       this.formularioReactivo.value.contra??'',
       this.formularioReactivo.value.correo??'',

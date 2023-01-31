@@ -1,124 +1,120 @@
-<form [formGroup]="formularioReactivo" (ngSubmit)="submit()" novalidate class="container"><!--novalidate true seria per no validar per html5-->
-    <h2>Formulario Registro Reactivo</h2>
-    <!-- Nom d’usuari * (camp de texte, només admet lletres i un mínim de 6)-->
-    <p>Nombre: 
-        <input type="text" formControlName="nombre" soloLetras>
-        <!--Mensajes error-->
-        <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['required'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
-            *
-        </span>
-        <!--Errores usados por la directica personalizada-->
-        <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['sololetras'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
-            Solo letras
-        </span>
-        <!--Errores usasdos de component.ts
-        <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['minlength'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
-            Longitud minima es 6 &nbsp;
-        </span>
-        <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['pattern'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
-            Solo admite letras 
-        </span>-->
-    </p>
-
-    <!-- Contrasenya * (camp de texte, admet lletres i números i un mínim de 8)-->
-    <p>Contraseña:
-        <input type="text" formControlName="contra">
-        <!--Mensajes error-->
-        <span *ngIf="this.formularioReactivo.get('contra')?.errors?.['required'] && this.formularioReactivo.get('contra')?.touched" class="textred">
-            *
-        </span> 
-        <span *ngIf="this.formularioReactivo.get('contra')?.errors?.['minlength'] && this.formularioReactivo.get('contra')?.touched" class="textred">
-            Longitud minima es 8 &nbsp;
-        </span>
-        <span *ngIf="this.formularioReactivo.get('contra')?.errors?.['pattern'] && this.formularioReactivo.get('contra')?.touched" class="textred">
-            Solo admite letras y numeros 
-        </span>
-    </p>
-    
-    <!-- Confirmar contrasenya * (igual que l’anterior i ha de coincidir)-->
-    <p>Confirmar Contraseña:                       <!--llamada directiva--paso de parametro de la contraseña  -->
-        <input type="text" formControlName="confcontra" appRepitecontra [parametro]="this.formularioReactivo.value.contra">
-        <!--Mensajes error-->
-        <span *ngIf="this.formularioReactivo.get('confcontra')?.errors?.['required'] && this.formularioReactivo.get('confcontra')?.touched" class="textred">
-            *
-        </span>
-        <!--Mensaje error directica personalizada-->
-        <span *ngIf="this.formularioReactivo.get('confcontra')?.errors?.['repitecontra'] && this.formularioReactivo.get('confcontra')?.touched" class="textred">
-            Debe conincidir con las Contraseña
-        </span>
-    </p>
-
-    <!-- Correu electrònic * (camp de texte, només admet email)-->
-    <p>Correo: 
-        <input type="text" formControlName="correo" emailPattern>
-        <!--Mensajes error-->
-        <span *ngIf="this.formularioReactivo.get('correo')?.errors?.['required'] && this.formularioReactivo.get('correo')?.touched" class="textred">
-            *
-        </span>
-        <!--Errores usados por la directica personalizada-->
-        <span *ngIf="this.formularioReactivo.get('correo')?.errors?.['emailPattern'] && this.formularioReactivo.get('correo')?.touched" class="textred">
-            Tiene que tener formato email
-        </span>
-    </p>
-    
-    <!-- Estat civil * (camp de tipus select que rep els seus valors des d’un array amb 
-    3 valors com poden ser: Casat/da, Solter/a, Divorciat/da)-->
-    <p>Estat Civil: 
-        <select formControlName="estatcivil">
-            <option *ngFor="let estat of estatCivil" value="{{estat}}">{{estat}}</option>
-        </select>
-        <!--Mensajes error-->
-        <span *ngIf="this.formularioReactivo.get('estatcivil')?.errors?.['required'] && this.formularioReactivo.get('estatcivil')?.pristine" class="textred">
-            *
-        </span>
-    </p>
-
-    <!--Sexe * (camp de tipus radio amb 3 valors com poden ser: Dona, Home, Altres)-->
-    <p >Sexe: &nbsp;
-        <label class="borderWhite">
-            <input type="radio" id="dona" name="sexe" value="dona" formControlName="sexe">&nbsp;
-            <label>Dona</label>&nbsp;&nbsp;&nbsp;
-            <input type="radio" id="home" name="sexe" value="home" formControlName="sexe">&nbsp;
-            <label>Home</label>&nbsp;&nbsp;&nbsp;
-            <input type="radio" id="altres" name="sexe" value="altres" formControlName="sexe">&nbsp;   
-            <label>Altres</label>
-        </label>
-        <!--Mensajes error-->
-        <span *ngIf="this.formularioReactivo.get('sexe')?.errors?.['required'] && this.formularioReactivo.get('sexe')?.pristine" class="textred">
-        *
-        </span>
-    </p>
-
-    <!--De què vols rebre informació? (camps checkboxes que els seus valors surten 
-    d’un array amb 3 valors com poden ser Videojocs, Accesoris, Novetats del mercat)-->
-    <p>De què vols rebre informació?
-        <label *ngFor="let info of informacion" class="borderWhite">&nbsp;
-            <input type="checkbox" value="{{info}}" formControlName="info" (change)="selectedInfo(info)">&nbsp;{{info}}
-        </label>
-        <!--Mensajes error-->
-        <span *ngIf="this.formularioReactivo.get('info')?.errors?.['required'] && this.formularioReactivo.get('info')?.pristine" class="textred">
-        *
-        </span>
-    </p>
-
-    <!--Acceptar condicions * (camp checkbox)-->
-    <p>
-        <input type="checkbox" formControlName="condiciones">&nbsp; Acceptar condicions
-        <span *ngIf="this.formularioReactivo.get('condiciones')?.errors?.['required'] && this.formularioReactivo.get('condiciones')?.pristine" class="textred">
-            *
-            </span>
-    </p>
-
-    <button type="submit" class="btn btn-outline-success" [disabled]="formularioReactivo.invalid" routerLink="/registrocorrecto">Registrarse</button>
-                                                            <!--si el invalidad fa true deshabilita el boton-->
-
-
-    <!--Muestra de informacion del registro
-    <div>
-        {{datos}}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <form [formGroup]="formularioReactivo" (ngSubmit)="submit()" novalidate class="col-3 border border-3 rounded-4"><!--novalidate true seria per no validar per html5-->
+            <h1>Registro</h1>
+            <!-- Nom d’usuari-->
+            <p>Nombre: 
+                <input type="text" formControlName="nombre" soloLetras class="form-control">
+                <!--Mensajes error-->
+                <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['required'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
+                    *
+                </span>
+                <!--Errores usados por la directica personalizada-->
+                <span *ngIf="this.formularioReactivo.get('nombre')?.errors?.['sololetras'] && this.formularioReactivo.get('nombre')?.touched" class="textred">
+                    Solo letras
+                </span>
+            </p>
+        
+            <!-- Contrasenya -->
+            <p>Contraseña:
+                <input type="password" formControlName="contra" class="form-control">
+                <!--Mensajes error-->
+                <span *ngIf="this.formularioReactivo.get('contra')?.errors?.['required'] && this.formularioReactivo.get('contra')?.touched" class="textred">
+                    *
+                </span> 
+                <span *ngIf="this.formularioReactivo.get('contra')?.errors?.['minlength'] && this.formularioReactivo.get('contra')?.touched" class="textred">
+                    Longitud minima es 8 &nbsp;
+                </span>
+                <span *ngIf="this.formularioReactivo.get('contra')?.errors?.['pattern'] && this.formularioReactivo.get('contra')?.touched" class="textred">
+                    Solo admite letras y numeros 
+                </span>
+            </p>
+            
+            <!-- Confirmar contrasenya -->
+            <p>Confirmar Contraseña:                       <!--llamada directiva--paso de parametro de la contraseña  -->
+                <input type="password" formControlName="confcontra" appRepitecontra [parametro]="this.formularioReactivo.value.contra" class="form-control">
+                <!--Mensajes error-->
+                <span *ngIf="this.formularioReactivo.get('confcontra')?.errors?.['required'] && this.formularioReactivo.get('confcontra')?.touched" class="textred">
+                    *
+                </span>
+                <!--Mensaje error directica personalizada-->
+                <span *ngIf="this.formularioReactivo.get('confcontra')?.errors?.['repitecontra'] && this.formularioReactivo.get('confcontra')?.touched" class="textred">
+                    Debe conincidir con las Contraseña
+                </span>
+            </p>
+        
+            <!-- Correu electrònic * (camp de texte, només admet email)-->
+            <p>Correo: 
+                <input type="text" formControlName="correo" emailPattern class="form-control">
+                <!--Mensajes error-->
+                <span *ngIf="this.formularioReactivo.get('correo')?.errors?.['required'] && this.formularioReactivo.get('correo')?.touched" class="textred">
+                    *
+                </span>
+                <!--Errores usados por la directica personalizada-->
+                <span *ngIf="this.formularioReactivo.get('correo')?.errors?.['emailPattern'] && this.formularioReactivo.get('correo')?.touched" class="textred">
+                    Tiene que tener formato email
+                </span>
+            </p>
+            
+            <!-- Estat civil -->
+            <p class="">Estat Civil: 
+                <select formControlName="estatcivil">
+                    <option *ngFor="let estat of estatCivil" value="{{estat}}">{{estat}}</option>
+                </select>
+                <!--Mensajes error-->
+                <span *ngIf="this.formularioReactivo.get('estatcivil')?.errors?.['required'] && this.formularioReactivo.get('estatcivil')?.pristine" class="textred">
+                    *
+                </span>
+            </p>
+        
+            <!--Sexe -->
+            <p >Sexe: &nbsp;
+                <label class="borderWhite">
+                    <input type="radio" id="dona" name="sexe" value="dona" formControlName="sexe" class="form-check-input">&nbsp;
+                    <label>Dona</label>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="home" name="sexe" value="home" formControlName="sexe" class="form-check-input">&nbsp;
+                    <label>Home</label>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="altres" name="sexe" value="altres" formControlName="sexe" class="form-check-input">&nbsp;   
+                    <label>Altres</label>
+                </label>
+                <!--Mensajes error-->
+                <span *ngIf="this.formularioReactivo.get('sexe')?.errors?.['required'] && this.formularioReactivo.get('sexe')?.pristine" class="textred">
+                *
+                </span>
+            </p>
+        
+            <!--De què vols rebre informació? -->
+            <p>De què vols rebre informació?
+                <br>
+                <label *ngFor="let info of informacion" class="borderWhite">&nbsp;
+                    <input type="checkbox" value="{{info}}" formControlName="info" (change)="selectedInfo(info)" class="form-check-input">&nbsp;{{info}}
+                </label>
+                <!--Mensajes error-->
+                <span *ngIf="this.formularioReactivo.get('info')?.errors?.['required'] && this.formularioReactivo.get('info')?.pristine" class="textred">
+                *
+                </span>
+            </p>
+        
+            <!--Acceptar condicions -->
+            <p>
+                <input type="checkbox" formControlName="condiciones" class="form-check-input">&nbsp; Acceptar condicions
+                <span *ngIf="this.formularioReactivo.get('condiciones')?.errors?.['required'] && this.formularioReactivo.get('condiciones')?.pristine" class="textred">
+                *
+                </span>
+            </p>
+        
+            <button type="submit" class="btn btn-outline-success" [disabled]="formularioReactivo.invalid" routerLink="/registrocorrecto">Registrarse</button>
+                                                                    <!--si el invalidad fa true deshabilita el boton-->
+        
+        
+            <!--Muestra de informacion del registro
+            <div>
+                {{datos}}
+            </div>
+            -->
+            <div>
+                <router-outlet></router-outlet><!--Para que funcione el routing-->
+            </div>
+        </form>
     </div>
-    -->
-    <div>
-        <router-outlet></router-outlet><!--Para que funcione el routing-->
-    </div>
-</form>
+</div>
