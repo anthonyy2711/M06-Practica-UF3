@@ -1,7 +1,6 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <h1 class="text-center">Admin</h1>
         <div class="row">
             <div class="col-4">Filter by name: <input type="text" [(ngModel)]="nameFilter" (ngModelChange)="filter()"></div>
             
@@ -27,8 +26,14 @@
                     <p>{{item.event_site}}</p>
                     <h5>Preu:</h5>
                     <p>{{item.event_price}}</p>
-                    <button *ngIf=""  class="btn btn-success mt-3 mb-3">Modificar</button>
-                    <button   class="btn btn-danger mt-3 ms-2 mb-3">Eliminar</button>
+                    <div *ngIf="role=='admin'">
+                        <button class="btn btn-success mt-3 mb-3">Modificar</button>
+                        <button class="btn btn-danger mt-3 ms-2 mb-3">Eliminar</button> 
+                    </div>
+                    <div *ngIf="role=='comprador'">
+                        <button class="btn btn-success mt-3 ms-2 mb-3">Comprar</button>
+                    </div>
+                    
                 </form>
                 
             </div>  

@@ -2,6 +2,7 @@ import { Component, OnInit,  } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { count } from 'rxjs';
 import { ServiceEventService } from 'src/app/services/service-event.service';
+import { SynchronizationService } from 'src/app/services/synchronization.service';
 import { Event } from '../../class/event.model ';
 @Component({
   selector: 'app-eventtemplatedriven',
@@ -10,6 +11,7 @@ import { Event } from '../../class/event.model ';
 })
 export class EventtemplatedrivenComponent implements OnInit {
   array!: Event[];
+  role!:string;
 
   total!:number;
   cp!:number;
@@ -22,7 +24,7 @@ export class EventtemplatedrivenComponent implements OnInit {
   siteFilter!: string;
   priceFilter!: number;
   //injectem el servei
-  constructor(public randomEvents:ServiceEventService, private myCookie: CookieService){
+  constructor(public randomEvents:ServiceEventService, private myCookie: CookieService, private sincronizacion:SynchronizationService){
 
   }
   
@@ -31,19 +33,25 @@ export class EventtemplatedrivenComponent implements OnInit {
     this.array= this.randomEvents.randomEvents();
     //console.log(this.array);//console log para ver los enventos randoms
 
+
+
     this.total=10;
     this.cp=1;
     this.eventFiltrado = this.array;
     this.nameFilter="";
     this.siteFilter="";
     this.priceFilter=50;
-    console.log
+
+    this.sincronizacion.RoleActual.subscribe(
+      message => this.role=message
+    )
+    
   }
 
   filter(){
 
     this.eventFiltrado = this.array.filter(value => {
-      console.log(this.nameFilter.toUpperCase())
+      //console.log(this.nameFilter.toUpperCase())
       if(value.event_price <= this.priceFilter){
         //console.log("Array name "+value.event_name.toUpperCase());
         //console.log("input name "+this.nameFilter.toUpperCase());
@@ -61,6 +69,6 @@ export class EventtemplatedrivenComponent implements OnInit {
 
   }
   delete() {
-
+    this.myCookie.deleteAll();
   }
 }

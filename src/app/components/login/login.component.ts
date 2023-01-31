@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/class/user';
 import { ServiceLoginValidationService } from 'src/app/services/service-login-validation.service';
+import { SynchronizationService } from 'src/app/services/synchronization.service';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +18,9 @@ export class LoginComponent implements OnInit{
   loginValidation:any;
   createUsers!: any;
   cookieService: any;
+
   //injectem el servei
-  constructor(private loginService: ServiceLoginValidationService, private myCookie: CookieService, private router:Router){
+  constructor(private loginService: ServiceLoginValidationService, private myCookie: CookieService, private router:Router, private sincronizacion:SynchronizationService){
     
   }
 
@@ -26,23 +28,26 @@ export class LoginComponent implements OnInit{
     this.nombreUsuario="";
     this.passwordUsuario="";
     this.createUsers=this.loginService.createUsers();
-    console.log(this.createUsers)
+
+    this.sincronizacion.RoleActual.subscribe(
+      message => this.role=message
+    )
   }
 
   submit(){
     //injectamos el servicio y le pasamos los parametros
     this.loginValidation = this.loginService.loginValidation(this.nombreUsuario, this.passwordUsuario);
-    console.log(this.nombreUsuario);
-    console.log(this.loginValidation);
-    //
-    this.myCookie.set(this.nombreUsuario,this.loginValidation);
-    console.log(this.myCookie.get(this.nombreUsuario));
 
-    if(this.loginValidation=='buyer' || this.loginValidation=='admin'){
-      this.router.navigate(['evento'])
-    } else{
-      
-    }
+    var loginUser = {
+      "username": this.nombreUsuario,
+      "role": this.loginValidation 
+    };
+    //
+    this.myCookie.set("user",JSON.stringify(loginUser));
+
+    this.sincronizacion.cambiarRole(this.loginValidation);
+    
+    this.router.navigate(['evento'])
     
   }
 

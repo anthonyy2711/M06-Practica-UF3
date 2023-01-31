@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ServiceLoginValidationService } from 'src/app/services/service-login-validation.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,7 +13,7 @@ export class RegistroComponent {
   informacion: string[];
   selectedInfoArray : string[];
 
-  constructor(){
+  constructor(private LoginUser:ServiceLoginValidationService){
     this.estatCivil = ['Soltero', 'Casado', 'Divorciado'];
     this.informacion = ['Videojocs', 'Accesoris', 'Novetats del mercat'];
     this.selectedInfoArray = [];
@@ -84,6 +85,7 @@ export class RegistroComponent {
 
   submit(){
     //console.log(this.selectedInfoArray)
+    /*
     this.datos=`
     Nombre: ${this.formularioReactivo.value.nombre} | 
     Contraseña: ${this.formularioReactivo.value.contra} |
@@ -96,7 +98,13 @@ export class RegistroComponent {
     for (let i = 0; i < this.selectedInfoArray.length; i++) {
       this.datos += this.selectedInfoArray[i] + " ";
       
-    }
+    }*///name, 'pass', name+index+"@gmail.com", status, gender, info, 'comprador'
+    this.LoginUser.anyadirUser( this.formularioReactivo.value.nombre??'',
+      this.formularioReactivo.value.contra??'',
+      this.formularioReactivo.value.correo??'',
+      this.formularioReactivo.value.estatcivil??'',
+      this.formularioReactivo.value.sexe??''
 
+      );//le pasas los datos del usuario
   }
 }
