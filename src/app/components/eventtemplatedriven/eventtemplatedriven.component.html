@@ -27,11 +27,11 @@
                     <h5>Tipus:</h5>
                     <p>{{item.event_type}}</p>
                     <h5>Data:</h5>
-                    <p>{{item.event_date.toDateString()}}</p>
+                    <p>{{item.event_date |  date:"MM/dd/yy" }}</p>
                     <h5>Lloc:</h5>
                     <p>{{item.event_site}}</p>
                     <h5>Preu:</h5>
-                    <p>{{item.event_price}}</p>
+                    <p>{{item.event_price | currency: 'EUR'}}</p>
                     <div *ngIf="role=='admin'">
                         <button class="btn btn-success mt-3 mb-3">Modificar</button>
                         <button class="btn btn-danger mt-3 ms-2 mb-3">Eliminar</button> 
