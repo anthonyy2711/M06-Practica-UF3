@@ -2,7 +2,7 @@ import { Component, OnInit,  } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { count } from 'rxjs';
-import { ServiceEventService } from 'src/app/services/service-event.service';
+import { ServiceEventService } from 'src/app/services/service-event.service';//importo el servicio
 import { SynchronizationService } from 'src/app/services/synchronization.service';
 import { Event } from '../../class/event.model ';
 @Component({
@@ -14,6 +14,7 @@ export class EventtemplatedrivenComponent implements OnInit {
   array!: Event[];
   role!:string;
 
+  //pagination
   total!:number;
   cp!:number;
   totalEvents!:number;
@@ -32,8 +33,10 @@ export class EventtemplatedrivenComponent implements OnInit {
     this.array= this.randomEvents.randomEvents();
     //console.log(this.array);//console log para ver los enventos randoms
 
-    this.total=10;
-    this.cp=1;
+    //pagination
+    this.total=10;//numero de items que aparece 
+    this.cp=1;//current page la pagina que de muestras
+
     this.eventFiltrado = this.array;
     this.nameFilter="";
     this.siteFilter="";
@@ -51,7 +54,7 @@ export class EventtemplatedrivenComponent implements OnInit {
       //console.log(this.nameFilter.toUpperCase())
       if(value.event_price <= this.priceFilter){
         //console.log("Array name "+value.event_name.toUpperCase());
-        //console.log("input name "+this.nameFilter.toUpperCase());
+        //console.log("Input name "+this.nameFilter.toUpperCase());
         if(value.event_name.toUpperCase().indexOf(this.nameFilter.toUpperCase()) != -1){
           if(value.event_site.toUpperCase().indexOf(this.siteFilter.toUpperCase()) !=-1){
             return true;
@@ -65,7 +68,7 @@ export class EventtemplatedrivenComponent implements OnInit {
   submit(){
 
   }
-  logout() {
+  logout(){
     this.myCookie.deleteAll();
     this.router.navigate(['login']) //importar router y redirigir al login
   }
